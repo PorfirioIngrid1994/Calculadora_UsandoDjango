@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+
+       
+        body {
+            background-color: saddlebrown;
+            font-family: sans-serif, 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .Calculator {
+            width: 350px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: salmon;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .Calculator h2 {
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .Calculator input[type="text"],
+        .Calculator select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        .Calculator label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .Calculator button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: blueviolet;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .Calculator button:hover {
+            background-color: #a04568;
+        }
+
+        .Resultados {
+            font-size: 25px;
+            margin-top: 21px;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="Calculator">
+        <h2>Calculadora</h2>
+        <form method="POST" action="{% url 'Calculate' %}">
+            <!-- {% csrf_token %} -->
+            <label for="numero1">Primeiro número</label>
+            <input type="text" id="numero1" name="numero1" placeholder="Digite o primeiro número">
+        
+            <label for="numero2">Segundo número</label>
+            <input type="text" id="numero2" name="numero2" placeholder="Digite o segundo número">
+        
+            <label for="operacao">Operação</label>
+            <select id="operacao" name="operacao">
+                <option value="somar">Somar</option>
+                <option value="subtrair">Subtrair</option>
+                <option value="multiplicar">Multiplicar</option>
+                <option value="dividir">Dividir</option>
+            </select>
+        
+            <button type="submit">Calcular</button>
+        </form>
+        
+    </div>
+</body>
+</html>
